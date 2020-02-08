@@ -10,30 +10,28 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.blo.MissionBLO;
+import com.blo.VilleBLO;
 import com.dao.VilleFranceDAO;
 import com.dto.Ville;
 
 @RestController
 //@RequestMapping("/path")
-class MissionController {
+class VilleController {
 
     @Autowired
-    MissionBLO missionService;
-    
+    VilleBLO villeFrance;
+   
 
-    // Methode GET
-    @RequestMapping(value = "/mission", method = RequestMethod.GET)
+    @RequestMapping(value = "/mission2", method = RequestMethod.GET)
     @ResponseBody
-    public String recover(@RequestParam(required = false, value = "numTrain") String numTrain) {
+    public ArrayList<Ville> recover2(@RequestParam(required = false, value = "Nom_commune") String Nom_commune) {
         System.out.println("Appel GET");
 
-        //ArrayList<Mission> listMission = missionService.getInfoMission(numTrain);
-        return "JSON";
+        ArrayList<Ville> response = villeFrance.getInfoVille(Nom_commune);
+        return response;
     }
-    
-    
-    
 
+    
     
 
 
@@ -44,3 +42,4 @@ class MissionController {
     //TODO
 
 }
+
