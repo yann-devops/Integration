@@ -84,12 +84,11 @@ class VilleController {
  
     // /add?value=[codeCommuneInsee=12345, nomCommune=test, codePostal=123, libelleAcheminement=test, ligne5=, lattitude=123.123, longitude=123.123]
     // /add?value=[nomCommune=test, codePostal=123, libelleAcheminement=test, ligne5=, lattitude=123.123, longitude=123.123]
-    // Avec une RequestMethode.POST ca ne marche pas... aucune idée pourquoi
+    
     @RequestMapping(value = "/add", method = RequestMethod.GET)
     @ResponseBody
     public void post(@RequestParam(required = false, value = "value") String ville) {
             System.out.println("Appel POST");
-            
             villeFrance.insererVille(ville);
             System.out.println("Ville ajoutée");
     }
